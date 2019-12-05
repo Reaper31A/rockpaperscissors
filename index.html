@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<head>
+
+</head>
+
+<title>Rock Paper Scissors</title>
+
+<body>
+
+<script>
+
+// User Play
+var userPlay = prompt("Rock, Paper or Scissors?");
+
+// capitalize first letter
+function capFLetter() {
+    return userPlay.charAt(0).toUpperCase() + userPlay.slice(1).toLowerCase();
+} 
+
+userPlay = capFLetter();
+
+// how to validate user input? currently not sending refresh message
+if (! userPlay) {
+    document.write("<p> Please refresh the page and enter a valid selection.</p>");
+} else {
+    document.write("<p>Player 1:" + " " + userPlay + "</p>");
+}
+
+// Computer Play
+var computerPlay = Math.random();
+if (computerPlay < 0.34) {
+    computerPlay = "Rock";
+} else if(computerPlay<= 0.67) {
+    computerPlay = "Paper";
+} else {
+    computerPlay = "Scissors";
+};
+document.write("<p>Computer:" + " " + computerPlay + "</p>");
+
+var compare = function(userPlay, computerPlay) {
+    if (userPlay === computerPlay) {
+        return "It's a tie!";
+    }
+    if (userPlay === "Rock") {
+        if (computerPlay === "Scissors") {
+            return "You win!";
+        } else {
+            return "You Lose! Try again.";
+        }
+    }
+    if (userPlay === "Paper") {
+        if (computerPlay === "Rock") {
+            return "You win!";
+        } else {
+            return "You lose! Try again.";
+        }
+    }
+    if (userPlay === "Scissors") {
+        if (computerPlay === "Paper") {
+            return "You win!";
+        } else {
+            if (computerPlay === "Rock") {
+                return "You lose. Try again.";
+            }
+        }
+    }
+};
+
+var results = compare(userPlay, computerPlay);
+
+document.write("<br><hr><br>" + results);
+</script>
+
+</body>
