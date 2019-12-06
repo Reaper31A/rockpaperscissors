@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<head>
+
+</head>
+
+<title>Rock Paper Scissors</title>
+
+<body>
+
+<script>
+
+playerScore = 0;
+compScore = 0;
+
+function round() { 
+// User Play
+var userPlay = prompt("Rock, Paper or Scissors?");
+
+// capitalize first letter
+function capFLetter() {
+    return userPlay.charAt(0).toUpperCase() + userPlay.slice(1).toLowerCase();
+} 
+
+userPlay = capFLetter();
+
+// user input validation
+if (userPlay != "Rock" && userPlay != "Paper" && userPlay != "Scissors") {
+    alert("Please refresh the page and enter a valid selection.");
+} else {
+    document.write("<p>Player 1:" + " " + userPlay + "</p>");
+}
+
+// Computer Play
+var computerPlay = Math.random();
+if (computerPlay < 0.34) {
+    computerPlay = "Rock";
+} else if(computerPlay<= 0.67) {
+    computerPlay = "Paper";
+} else {
+    computerPlay = "Scissors";
+};
+document.write("<p>Computer:" + " " + computerPlay + "</p>");
+
+var compare = function playRound(userPlay, computerPlay) {
+    
+    if (userPlay === computerPlay) {
+        return "It's a tie!";
+    }
+    if (userPlay === "Rock") {
+        if (computerPlay === "Scissors") {
+            return "You win!", playerScore++;
+        } else {
+            return "You Lose! Try again.", compScore++;
+        }
+    }
+    if (userPlay === "Paper") {
+        if (computerPlay === "Rock") {
+            return "You win!", playerScore++;
+        } else {
+            return "You lose! Try again.", compScore++;
+        }
+    }
+    if (userPlay === "Scissors") {
+        if (computerPlay === "Paper") {
+            return "You win!", playerScore++;
+        } else {
+            if (computerPlay === "Rock") {
+                return "You lose. Try again.", compScore++;
+            }
+        }
+    }
+};
+
+
+
+var results = compare(userPlay, computerPlay);
+
+document.write("<br><hr><br>" + results);
+
+
+};
+
+round();
+
+round();
+
+round();
+
+round();
+
+round();
+
+
+if (playerScore > compScore) {
+    alert("You won with" + " " + playerScore + " rounds won! The computer only won " + compScore + " rounds");
+} else {
+    if (playerScore == compScore) {
+        alert("Its a tie! You and the computer both won " + playerScore + " rounds.");
+    } else
+    alert("You lost with " + playerScore + " rounds won.The computer won " + compScore + " rounds");
+};
+
+
+
+</script>
+
+</body>
+
+</html>
