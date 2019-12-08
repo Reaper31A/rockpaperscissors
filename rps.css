@@ -1,1 +1,124 @@
+.name {
+    margin-top: -10px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 60px;
+    background-color: cornsilk;
+}
+
+body {
+    background-color: red;
+   
+}
+#round {
+    margin-top: 1%;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+}
+#roundTracker {
+    text-align: center;
+    color: white;
+}
+#choice1 {
+    float: left;
+    margin-left: -4%;
+    margin-top: 2.5%;
+}
+
+#choice2 {
+    float: right;
+    margin-right: -4%;
+    margin-top: 2.5%;
+}
+
+#psTracker {
+    float: left;
+    font-size: 20px;
+    color: white;
+    margin-left: -5% ;
+}
+
+#playerChoice {
+    float: left;
+}
+#compchoice {
+    float: right;
+}
+
+#roundWinner {
+    color: white;
+    text-align: center;
+    margin-top: 5%;
+}
+
+#winner {
+    color: white;
+    text-align: center;
+}
+
+#winCondition {
+    color: white;
+    text-align: center;
+}
+
+#cpTracker {
+    float: right;
+    font-size: 20px;
+    color: white;
+    margin-right: -5%;
+}
+
+#rplayerScore {
+    float: left;
+    text-align: center;
+    color: white;
+}
+
+#rcomputerScore {
+    float: right;
+    text-align: center;
+    color: white;
+}
+
+#playerScore {
+    float: left;
+    margin-top: 2.5%;
+    margin-left: -4%;
+}
+
+#compScore {
+    float: right;
+    margin-top: 2.5%;
+    margin-right: -5.5%;
+}
+
+#rockbtn {
+    position: relative;
+    background-color: white;
+    width: 33%;
+    height: 33%;
+    float: left;
+    
+}
+
+#scissorsbtn {
+    position: relative;
+    background-color: white;
+    width: 33%;
+    height: 33%;
+    float: right;
+}
+
+#paperbtn {
+    position: relative;
+    border-color: black;
+    background-color: white;
+    margin-left: .5%;
+    padding-left: .5%;
+    width: 33%;
+    height: 33%;
+}
+
+
 
