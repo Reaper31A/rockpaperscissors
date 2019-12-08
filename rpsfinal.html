@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="styleSheet" href="/home/reaper31/odin_on_rails/rockpaperscissors/rps.css"/>
+    </head>
+    <title>Rock Paper Scissors</title>
+    <header></header>
+
+    <body>
+        <div>
+               <h1 class = "name">Rock Paper Scissors</h1>
+        </div>
+        <div class = "buttons">
+            <button type= "button" id = "rockbtn" onclick="compare(rock, choice2)"><img src="/home/reaper31/odin_on_rails/rockpaperscissors/images/rock.png"></button></button>
+            <button type = "button" id = "scissorsbtn" onclick="compare(scissors, choice2)"><img src="/home/reaper31/odin_on_rails/rockpaperscissors/images/scissors.png"></button>
+            <button type="button" id = "paperbtn" onclick="compare(paper, choice2)"><img src="/home/reaper31/odin_on_rails/rockpaperscissors/images/paper2.png"></button>         
+        </div>
+        
+
+        <div class="scoreCard">
+            <h4 id="playerChoice">Player chose</h4>
+            
+            <h4 id="compchoice">Computer chose</h4><br>
+            <p id="choice1">N/A</p>
+            <p id="choice2">N/A</p>
+            <p id="round"></p>
+        </div>
+        <div class="runningScore">
+            <h5 id="rplayerScore">Player Score</h5>
+            <h5 id="rcomputerScore">Computer Score</h5>
+            
+            <br>
+            <p id="playerScore">0</p>
+            <p id="compScore">0</p>
+            <br>
+            <h4 id="roundWinner">The winner is</h4>
+            <p id="winner"></p>
+            <p id="winCondition"></p>
+
+        </div>
+
+       
+
+<script>
+    var rock = "rock";
+    var paper = "paper";
+    var scissors = "scissors";
+    var compScore = 0;
+    var playerScore = 0;
+    var round = 1;
+    
+    document.getElementById("round").innerHTML  = round;
+        
+    function roundUp() {
+        round += 1;
+            document.getElementById("round").innerHTML  = round;
+    };
+
+    
+    
+    
+
+var compare = function(choice1, choice2) {
+
+    var computerChoice = Math.random() 
+    if (computerChoice < 0.34) {
+        choice2 = "rock";
+    } else if(computerChoice < 0.67) {
+        choice2 = "paper";
+    } else if(computerChoice > 0.67) {
+        choice2 = "scissors";
+    };
+
+    if (choice1 == choice2) {
+        document.getElementById("winner").innerHTML  = "Round tied!";
+        document.getElementById("winCondition").innerHTML = "";
+    } else if (choice1 === "rock") {
+        if (choice2 === "scissors") {
+            playerScore += 1;
+            document.getElementById("winner").innerHTML  = "You win!"; 
+            document.getElementById("winCondition").innerHTML  = "Rock breaks Scissors!";
+        } else {
+            compScore += 1;
+            document.getElementById("winner").innerHTML  = "Computer wins!"; 
+            document.getElementById("winCondition").innerHTML  = "Paper beats Rock!";
+        }
+    }
+    if (choice1 === "paper") {
+        if (choice2 === "rock") {
+            playerScore += 1;
+            document.getElementById("winner").innerHTML = "You win!";
+            document.getElementById("winCondition").innerHTML  = "Paper beats Rock!";
+        } else if(choice2 === scissors) {
+            compScore += 1;
+            document.getElementById("winner").innerHTML  = "Computer wins!";
+            document.getElementById("winCondition").innerHTML  = "Scissors cut Paper!";
+        }else if(choice2 === paper) {
+            document.getElementById("winner").innerHTML  = "Round tied!";
+            document.getElementById("winCondition").innerHTML = "";
+        }
+    };
+    if (choice1 === "scissors") {
+        if (choice2 === "paper") {
+            playerScore += 1;
+            document.getElementById("winner").innerHTML  = "You win!";
+            document.getElementById("winCondition").innerHTML  = "Scissors cut Paper!";
+        } else if(choice2 === rock) {
+            compScore += 1;
+            document.getElementById("winner").innerHTML  = "Computer wins!";
+            document.getElementById("winCondition").innerHTML  = "Rock breaks Scissors!";
+        }else if(choice2 === scissors) {
+            if (choice1 == choice2) {
+            document.getElementById("winner").innerHTML  = "Round tied!";
+            document.getElementById("winCondition").innerHTML = "";
+        };
+        };
+        
+    };
+
+    document.getElementById("playerScore").innerHTML  = playerScore;
+    document.getElementById("compScore").innerHTML  = compScore;
+    document.getElementById("choice1").innerHTML  = choice1;
+    document.getElementById("choice2").innerHTML  = choice2;
+    roundUp();
+       
+    console.log(compare);
+    console.log(compScore);
+    console.log(playerScore);
+
+};
+
+
+
+        
+    
+
+    
+        
+            
+</script>       
+        
+        
+        
+        
+    </body>
+
+ 
+
+</html>
